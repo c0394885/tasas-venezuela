@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasas Venezuela by @Enstor - La App Definitiva a Tasa BCV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body {
+            background-color: #060911;
+            color: #F8FAFC;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow-top-left { position: absolute; top: -150px; left: -150px; width: 450px; height: 450px; background: rgba(16, 185, 129, 0.2); filter: blur(120px); border-radius: 50%; pointer-events: none; }
+        .glow-mid-right { position: absolute; top: 600px; right: -150px; width: 450px; height: 450px; background: rgba(59, 130, 246, 0.2); filter: blur(120px); border-radius: 50%; pointer-events: none; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 9, 17, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 8vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1.5dp solid #10B981;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #10B981;
+            font-size: 14px;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .logo-text { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+        .logo-text span { color: #10B981; }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: #ffffff; }
+
+        .btn-nav {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 8vw 80px 8vw;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            min-height: 90vh;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 6px 16px;
+            border-radius: 30px;
+            color: #10B981;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-hero-primary:hover { transform: translateY(-2px); }
+
+        .btn-hero-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 16px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-hero-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* Hero Mockup Frame */
+        .phone-mockup-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone-container {
+            width: 280px;
+            height: 560px;
+            background: #0f172a;
+            border: 10px solid #1e293b;
+            border-radius: 44px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.9), 0 0 50px rgba(16, 185, 129, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            width: 90px;
+            height: 18px;
+            background: #1e293b;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 20;
+        }
+
+        .phone-container video, .phone-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 80px 8vw;
+            background: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-title { font-size: 36px; font-weight: 800; margin-bottom: 14px; }
+        .section-sub { font-size: 16px; color: #94A3B8; }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .case-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover { transform: translateY(-4px); }
+
+        .case-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .tag-personal { background: rgba(16, 185, 129, 0.15); color: #10B981; }
+        .tag-comercio { background: rgba(59, 130, 246, 0.15); color: #3B82F6; }
+
+        .case-title { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+        .case-desc { color: #94A3B8; font-size: 15px; margin-bottom: 20px; }
+
+        .case-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .case-list li {
+            font-size: 14px;
+            color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .case-list li::before {
+            content: "✓";
+            color: #10B981;
+            font-weight: 800;
+        }
+
+        /* Features Section */
+        .features { padding: 90px 8vw; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            transition: border-color 0.3s ease;
+        }
+
+        .feature-card:hover { border-color: rgba(16, 185, 129, 0.4); }
+
+        .feature-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(16, 185, 129, 0.12);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+            color: #10B981;
+        }
+
+        .feature-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+        .feature-text { font-size: 14px; color: #94A3B8; line-height: 1.6; }
+
+        /* CTA Banner Section */
+        .cta-banner {
+            margin: 60px 8vw 100px 8vw;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%), #0f172a;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .cta-title { font-size: 36px; font-weight: 800; margin-bottom: 14px; }
+        .cta-text { font-size: 16px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* Footer */
+        footer {
+            padding: 40px 8vw;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748B;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 120px; }
+            .hero-desc { margin: 0 auto 32px auto; }
+            .hero-actions { justify-content: center; }
+            .cases-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero-title { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-top-left"></div>
+    <div class="glow-mid-right"></div>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="#" class="brand-logo">
+            <div class="logo-icon">BS=$</div>
+            <div class="logo-text">Tasas <span>Venezuela</span></div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#uso">Para Quién Es</a></li>
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#demo">Demostración</a></li>
+            <li><a href="https://wa.me/?text=Hola%2C%20quiero%20solicitar%20mi%20Prueba%20Gratuita%20de%20Tasas%20Venezuela" class="btn-nav">🎁 Probar Gratis</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <div class="hero-badge">
+                <span>🇻🇪</span> TASA BCV EN VIVO + CALCULADORA INTELIGENTE
+            </div>
+            <h1 class="hero-title">
+                La App Esencial para <span>Comprar, Cobrar y Calcular</span> a Tasa BCV
+            </h1>
+            <p class="hero-desc">
+                Consulta el Dólar y Euro oficial en tiempo real directamente desde tu pantalla de inicio. Calcula tus compras del mercado o productos comerciales y obtén el vuelto exacto con desglose de Billetes Físicos + Pago Móvil.
+            </p>
+
+            <div class="hero-actions">
+                <a href="https://wa.me/?text=Hola%2C%20quiero%20activar%20mi%20Prueba%20Gratis%20de%20Tasas%20Venezuela" class="btn-hero-primary">
+                    <span>🟢 Solicitar Prueba Gratuita</span>
+                </a>
+                <a href="#demo" class="btn-hero-secondary">
+                    <span>🎬 Ver Cómo Funciona</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="phone-mockup-wrapper">
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <video autoplay loop muted playsinline src="promo_assets/video.mp4"></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos de Uso (Personal vs Comercial) -->
+    <section id="uso" class="use-cases">
+        <div class="section-header">
+            <h2 class="section-title">Diseñada para Todo Venezuela 🇻🇪</h2>
+            <p class="section-sub">Desde la compra cotidiana de la familia en el supermercado hasta la rapidez en caja de un abasto o comercio.</p>
+        </div>
+
+        <div class="cases-grid">
+            <!-- Uso Personal -->
+            <div class="case-card">
+                <span class="case-tag tag-personal">🛒 Uso Personal y Compras</span>
+                <h3 class="case-title">Para Tus Compras Diarias</h3>
+                <p class="case-desc">Olvídate de sacar cuentas manuales en la calculadora del teléfono para saber cuántos Bolívares te toca pagar.</p>
+                <ul class="case-list">
+                    <li>Widget oficial en vivo en tu pantalla de inicio.</li>
+                    <li>Suma el total de tu mercado en Dólares y Euros.</li>
+                    <li>Verifica si el vuelto que te están dando en la tienda es exacto.</li>
+                    <li>Mantiene el control de tu dinero sin enredos.</li>
+                </ul>
+            </div>
+
+            <!-- Uso Comercial -->
+            <div class="case-card">
+                <span class="case-tag tag-comercio">🏬 Uso Comercial y Cajeros</span>
+                <h3 class="case-title">Para Abastos, Tiendas y Cajeros</h3>
+                <p class="case-desc">Agiliza el cobro en caja y elimina colas al momento de dar el vuelto a la tasa del Banco Central de Venezuela.</p>
+                <ul class="case-list">
+                    <li>Convertidor instantáneo de divisas a Bolívares.</li>
+                    <li>Calculadora de Vuelto con desglose automático.</li>
+                    <li>Te indica cuántos billetes entregar y cuánto en Pago Móvil.</li>
+                    <li>Licencias multiequipo gestionadas en la nube.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funciones Principales -->
+    <section id="funciones" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Todas las Herramientas que Necesitas</h2>
+            <p class="section-sub">Creada pensando en la realidad del comercio y la economía diaria en Venezuela.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box">📊</div>
+                <h3 class="feature-title">Tasa Oficial BCV en Vivo</h3>
+                <p class="feature-text">Sincronización automática con la Tasa Oficial del Banco Central de Venezuela para Dólar ($) y Euro (€).</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box">📲</div>
+                <h3 class="feature-title">Widget de Pantalla de Inicio</h3>
+                <p class="feature-text">Un Widget elegante de alto contraste que te permite ver la tasa oficial actualizada sin necesidad de abrir la app.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box">💡</div>
+                <h3 class="feature-title">Desglose Inteligente de Vuelto</h3>
+                <p class="feature-text">Calcula el vuelto exacto: te sugiere combinar los billetes físicos disponibles y enviar el restante en Pago Móvil.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-box">🛒</div>
+                <h3 class="feature-title">Historial de Carga Rápida</h3>
+                <p class="feature-text">Añade productos individuales en divisas o montos directos en Bolívares para obtener el total a pagar al instante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA Final -->
+    <section id="demo" class="cta-banner">
+        <h2 class="cta-title">¡Obtén tu Prueba Gratuita Hoy Mismo!</h2>
+        <p class="cta-text">Pide tu clave demo de regalo por WhatsApp o DM. Compruébalo tú mismo en tu teléfono personal o en los equipos de tu negocio.</p>
+        <a href="https://wa.me/?text=Hola%2C%20quiero%20probar%20la%20app%20Tasas%20Venezuela" class="btn-hero-primary">
+            <span>📲 Solicitar Prueba por WhatsApp</span>
+        </a>
+    </section>
+
+    <!-- Flotante WhatsApp -->
+    <a href="https://wa.me/?text=Hola%2C%20quiero%20informacion%20de%20la%20app%20Tasas%20Venezuela" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <footer>
+        <div>© 2026 Tasas Venezuela by @Enstor. Todos los derechos reservados.</div>
+        <div>Desarrollo Móvil Venezuela 🇻🇪</div>
+    </footer>
+
+</body>
+</html>
