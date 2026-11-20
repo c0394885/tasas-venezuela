@@ -356,6 +356,87 @@
             margin-top: 1px;
         }
 
+        /* ---------------------------------------------------- */
+        /* SECCIÓN DE TUTORIALES PASO A PASO (NUEVO) */
+        /* ---------------------------------------------------- */
+        .tutorials-section {
+            padding: 90px 6vw;
+            background: #090D16;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tuto-box {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .tuto-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tuto-badge-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1.5px solid #10B981;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #10B981;
+        }
+
+        .tuto-header-title { font-size: 20px; font-weight: 800; color: #ffffff; }
+        .tuto-header-sub { font-size: 12px; color: #94A3B8; }
+
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            color: #3B82F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 13px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-text { font-size: 14px; color: #E2E8F0; line-height: 1.5; }
+        .step-text strong { color: #ffffff; }
+
         /* Features Section */
         .features { padding: 90px 6vw; }
 
@@ -448,12 +529,12 @@
             .hero-title { font-size: 32px; }
             .hero-desc { margin: 0 auto 24px auto; font-size: 15px; }
             .hero-actions { justify-content: center; }
-            .cases-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cases-grid, .tutorials-grid { grid-template-columns: 1fr; gap: 20px; }
             .nav-links { display: none; }
             .section-title { font-size: 28px; }
             .cta-title { font-size: 26px; }
             .phone-container { width: 240px; height: 480px; }
-            .case-card { padding: 26px 20px; }
+            .case-card, .tuto-box { padding: 24px 18px; }
         }
     </style>
 </head>
@@ -471,6 +552,7 @@
 
         <ul class="nav-links">
             <li><a href="#uso">Para Quién Es</a></li>
+            <li><a href="#tutoriales">Guía de Instalación</a></li>
             <li><a href="#funciones">Funciones</a></li>
             <li><a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.1/TasasVenezuela-v1.1.apk" class="btn-nav">📲 Descargar APK Gratis</a></li>
         </ul>
@@ -486,7 +568,7 @@
                 La App Esencial para <span>Comprar, Cobrar y Calcular</span> a Tasa BCV
             </h1>
             <p class="hero-desc">
-                Consulta el Dólar y Euro oficial en tiempo real directamente desde tu pantalla de inicio. Descarga la app gratis y disfruta de 48 Horas de Prueba Automática sin publicidad.
+                Consulta el Dólar y Euro oficial en tiempo real directamente desde tu pantalla de inicio. Descarga la app gratis e instálala en 30 segundos con nuestras 48 Horas de Prueba Incluidas.
             </p>
 
             <div class="hero-actions">
@@ -551,6 +633,76 @@
                     <li><span class="check-icon">✓</span> <span><strong>Licencias Multiequipo:</strong> Conecta los teléfonos de todos tus cajeros en tiempo real.</span></li>
                     <li><span class="check-icon">✓</span> <span><strong>Rápida y Privada:</strong> Interfaz profesional sin publicidad molesta en horario de trabajo.</span></li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE TUTORIALES DE INSTALACIÓN Y WIDGET (NUEVO) -->
+    <section id="tutoriales" class="tutorials-section">
+        <div class="section-header">
+            <h2 class="section-title">Guía Fácil: <span>Instalación y Widget</span> 📲</h2>
+            <p class="section-sub">Sigue estos sencillos pasos para instalar el instalador APK de forma segura y colocar el Widget en la pantalla de tu celular.</p>
+        </div>
+
+        <div class="tutorials-grid">
+            <!-- Tuto 1: Instalación de la App -->
+            <div class="tuto-box">
+                <div class="tuto-header">
+                    <div class="tuto-badge-icon">📥</div>
+                    <div>
+                        <div class="tuto-header-title">Cómo Instalar el APK de la App</div>
+                        <div class="tuto-header-sub">Instalación directa, segura y 100% libre de virus</div>
+                    </div>
+                </div>
+
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Haz clic en el botón verde <strong>"Descargar APK Gratis"</strong> para bajar el archivo instalador a tu teléfono.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Abre la notificación de descarga finalizada en tu teléfono o busca el archivo en la carpeta <strong>Descargas (Downloads)</strong>.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Si tu teléfono solicita permiso para <em>"Instalar aplicaciones desconocidas"</em>, toca en <strong>Permitir</strong> o <strong>Instalar de todos modos</strong>.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-text">¡Listo! Abre la app <strong>BS = $</strong> y disfruta automáticamente de tus <strong>48 Horas de Prueba Gratuita</strong>.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuto 2: Colocar el Widget en la Pantalla -->
+            <div class="tuto-box">
+                <div class="tuto-header">
+                    <div class="tuto-badge-icon">📲</div>
+                    <div>
+                        <div class="tuto-header-title">Cómo Agregar el Widget a tu Pantalla</div>
+                        <div class="tuto-header-sub">Ve la Tasa BCV oficial sin necesidad de abrir la app</div>
+                    </div>
+                </div>
+
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">En la pantalla principal de tu teléfono, **mantén presionado un espacio vacío** durante 2 segundos.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">En el menú que aparecerá en la parte inferior, toca la opción <strong>Widgets</strong>.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Busca la aplicación <strong>BS = $ (Tasas Venezuela)</strong> en tu lista de aplicaciones.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-text">Elige tu Widget preferido (*Tarjeta Completa u Horizontal Compacto*), manténlo presionado y **arrástralo a tu pantalla**.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
