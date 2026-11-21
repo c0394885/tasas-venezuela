@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BS = $ | Tasas Venezuela by @Enstor - La App Definitiva a Tasa BCV</title>
+    <title>BS = $ | Tasas Venezuela & Fast Calc by @Enstor</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
@@ -356,9 +356,60 @@
             margin-top: 1px;
         }
 
-        /* ---------------------------------------------------- */
-        /* SECCIÓN DE TUTORIALES PASO A PASO (NUEVO) */
-        /* ---------------------------------------------------- */
+        /* SECCIÓN FAST CALC ⚡ */
+        .fastcalc-section {
+            padding: 90px 6vw;
+            background: linear-gradient(180deg, #090D16 0%, #0f172a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .fastcalc-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%), #0f172a;
+            border: 1.5px solid rgba(59, 130, 246, 0.4);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .fastcalc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid #3B82F6;
+            padding: 4px 14px;
+            border-radius: 20px;
+            color: #3B82F6;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .fastcalc-title { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+        .fastcalc-desc { font-size: 15px; color: #94A3B8; margin-bottom: 20px; line-height: 1.6; }
+
+        .calc-demo-display {
+            background: #060911;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 18px;
+            padding: 20px;
+            text-align: right;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .calc-expr { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
+        .calc-expr sup { color: #10B981; font-size: 15px; font-weight: 900; }
+        .calc-divider-line { height: 1.5px; background: rgba(16, 185, 129, 0.5); margin: 6px 0; }
+        .calc-result-bs { font-size: 32px; font-weight: 900; color: #10B981; }
+        .calc-result-usd { font-size: 16px; font-weight: 700; color: #3B82F6; }
+
+        /* SECCIÓN DE TUTORIALES PASO A PASO */
         .tutorials-section {
             padding: 90px 6vw;
             background: #090D16;
@@ -529,12 +580,12 @@
             .hero-title { font-size: 32px; }
             .hero-desc { margin: 0 auto 24px auto; font-size: 15px; }
             .hero-actions { justify-content: center; }
-            .cases-grid, .tutorials-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cases-grid, .tutorials-grid, .fastcalc-card { grid-template-columns: 1fr; gap: 20px; }
             .nav-links { display: none; }
             .section-title { font-size: 28px; }
             .cta-title { font-size: 26px; }
             .phone-container { width: 240px; height: 480px; }
-            .case-card, .tuto-box { padding: 24px 18px; }
+            .case-card, .tuto-box, .fastcalc-card { padding: 24px 18px; }
         }
     </style>
 </head>
@@ -552,9 +603,9 @@
 
         <ul class="nav-links">
             <li><a href="#uso">Para Quién Es</a></li>
+            <li><a href="#fastcalc">Fast Calc ⚡</a></li>
             <li><a href="#tutoriales">Guía de Instalación</a></li>
-            <li><a href="#funciones">Funciones</a></li>
-            <li><a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.1/TasasVenezuela-v1.1.apk" class="btn-nav">📲 Descargar APK Gratis</a></li>
+            <li><a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-nav">📲 Descargar APK v1.2</a></li>
         </ul>
     </nav>
 
@@ -572,8 +623,8 @@
             </p>
 
             <div class="hero-actions">
-                <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.1/TasasVenezuela-v1.1.apk" class="btn-hero-primary">
-                    <span>📲 Descargar Gratis (Prueba 48h Incluida)</span>
+                <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-hero-primary">
+                    <span>📲 Descargar Gratis v1.2 (Prueba 48h Incluida)</span>
                 </a>
                 <a href="https://wa.me/584129196540?text=Hola%2C%20quiero%20adquirir%20mi%20Licencia%20Completa%20de%20Tasas%20Venezuela%20(%243.50)" class="btn-hero-secondary">
                     <span>💬 Adquirir Licencia Completa ($3.50)</span>
@@ -637,7 +688,35 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE TUTORIALES DE INSTALACIÓN Y WIDGET (NUEVO) -->
+    <!-- SECCIÓN NOVEDAD: FAST CALC ⚡ -->
+    <section id="fastcalc" class="fastcalc-section">
+        <div class="fastcalc-card">
+            <div>
+                <div class="fastcalc-badge">⚡ NOVEDAD EXCLUSIVA EN V1.2</div>
+                <h2 class="fastcalc-title">Fast Calc: Calculadora Matemática Híbrida</h2>
+                <p class="fastcalc-desc">
+                    Combina Dólares y Bolívares en la misma ecuación. Presiona <strong>=</strong> para trazar las líneas de evaluación y restar entregas en efectivo o Pago Móvil conservando tu suma inicial en pantalla.
+                </p>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-hero-primary" style="padding: 12px 22px; font-size: 14px;">
+                        <span>📲 Probar Fast Calc en la App</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pantalla Demo de Ecuación -->
+            <div class="calc-demo-display">
+                <div class="calc-expr">580 + 3,2<sup>$</sup> + 1250 + 0,9<sup>$</sup> + 4,2<sup>$</sup></div>
+                <div class="calc-divider-line"></div>
+                <div class="calc-result-bs">9.464,53 Bs.</div>
+                <div class="calc-result-usd">≡ $ 10,29 USD</div>
+                <div class="calc-divider-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE TUTORIALES DE INSTALACIÓN Y WIDGET -->
     <section id="tutoriales" class="tutorials-section">
         <div class="section-header">
             <h2 class="section-title">Guía Fácil: <span>Instalación y Widget</span> 📲</h2>
@@ -728,9 +807,9 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon-box">💡</div>
-                <h3 class="feature-title">Desglose Inteligente de Vuelto</h3>
-                <p class="feature-text">Calcula el vuelto exacto: te sugiere combinar los billetes físicos disponibles y enviar el restante en Pago Móvil.</p>
+                <div class="feature-icon-box">⚡</div>
+                <h3 class="feature-title">Fast Calc Integrado</h3>
+                <p class="feature-text">Realiza operaciones matemáticas mezclando Bolívares y Dólares con exponente <sup>$</sup> en un solo toque.</p>
             </div>
 
             <div class="feature-card">
@@ -746,8 +825,8 @@
         <h2 class="cta-title">¡Descarga la App e Instálala Hoy Mismo!</h2>
         <p class="cta-text">Descarga el APK directamente en tu teléfono Android y disfruta automáticamente de tus 48 Horas de Prueba Gratuita.</p>
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-            <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.1/TasasVenezuela-v1.1.apk" class="btn-hero-primary">
-                <span>📲 Descargar App (Prueba 48h Incluida)</span>
+            <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-hero-primary">
+                <span>📲 Descargar App v1.2 (Prueba 48h Incluida)</span>
             </a>
             <a href="https://wa.me/584129196540?text=Hola%2C%20quiero%20adquirir%20mi%20Licencia%20Completa%20de%20Tasas%20Venezuela%20(%243.50)" class="btn-hero-secondary">
                 <span>💬 Adquirir Licencia Completa ($3.50)</span>
@@ -761,7 +840,7 @@
     </a>
 
     <footer>
-        <div>© 2026 BS = $ | Tasas Venezuela by @Enstor. Todos los derechos reservados.</div>
+        <div>© 2026 BS = $ | Tasas Venezuela & Fast Calc by @Enstor. Todos los derechos reservados.</div>
         <div>Desarrollo Móvil Venezuela 🇻🇪</div>
     </footer>
 
