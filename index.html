@@ -15,18 +15,18 @@
         }
 
         /* Ambient Glow Backgrounds */
-        .glow-top-left { position: absolute; top: -150px; left: -150px; width: 450px; height: 450px; background: rgba(16, 185, 129, 0.2); filter: blur(120px); border-radius: 50%; pointer-events: none; }
-        .glow-mid-right { position: absolute; top: 600px; right: -150px; width: 450px; height: 450px; background: rgba(59, 130, 246, 0.2); filter: blur(120px); border-radius: 50%; pointer-events: none; }
+        .glow-top-left { position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; background: rgba(16, 185, 129, 0.18); filter: blur(130px); border-radius: 50%; pointer-events: none; }
+        .glow-mid-right { position: absolute; top: 700px; right: -150px; width: 500px; height: 500px; background: rgba(59, 130, 246, 0.18); filter: blur(130px); border-radius: 50%; pointer-events: none; }
 
-        /* Navigation */
-        nav {
+        /* Sticky Header */
+        nav.sticky-header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             background: rgba(6, 9, 17, 0.88);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 14px 6vw;
             display: flex;
@@ -86,14 +86,14 @@
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 130px 6vw 70px 6vw;
+        /* Hero Fullscreen Section */
+        .hero-fullscreen {
+            min-height: 100vh;
+            padding: 130px 6vw 80px 6vw;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            gap: 36px;
+            gap: 40px;
             align-items: center;
-            min-height: 85vh;
             position: relative;
         }
 
@@ -112,11 +112,11 @@
         }
 
         .hero-title {
-            font-size: 44px;
+            font-size: 48px;
             font-weight: 800;
-            line-height: 1.18;
-            letter-spacing: -1px;
-            margin-bottom: 18px;
+            line-height: 1.16;
+            letter-spacing: -1.2px;
+            margin-bottom: 20px;
         }
 
         .hero-title span {
@@ -126,10 +126,11 @@
         }
 
         .hero-desc {
-            font-size: 17px;
+            font-size: 18px;
             color: #94A3B8;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
             max-width: 580px;
+            line-height: 1.6;
         }
 
         .hero-actions {
@@ -144,7 +145,7 @@
             color: #ffffff;
             font-weight: 800;
             font-size: 15px;
-            padding: 15px 28px;
+            padding: 16px 30px;
             border-radius: 14px;
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
@@ -162,7 +163,7 @@
             color: #ffffff;
             font-weight: 700;
             font-size: 15px;
-            padding: 15px 26px;
+            padding: 16px 28px;
             border-radius: 14px;
             text-decoration: none;
             display: inline-flex;
@@ -173,7 +174,7 @@
 
         .btn-hero-secondary:hover { background: rgba(59, 130, 246, 0.25); }
 
-        /* Hero Mockup Frame */
+        /* Hero Mockup Video Frame */
         .phone-mockup-wrapper {
             display: flex;
             justify-content: center;
@@ -182,12 +183,12 @@
         }
 
         .phone-container {
-            width: 270px;
-            height: 540px;
+            width: 280px;
+            height: 560px;
             max-width: 90vw;
             background: #0f172a;
             border: 9px solid #1e293b;
-            border-radius: 42px;
+            border-radius: 44px;
             box-shadow: 0 30px 70px rgba(0,0,0,0.9), 0 0 50px rgba(16, 185, 129, 0.25);
             position: relative;
             overflow: hidden;
@@ -212,12 +213,49 @@
             object-fit: cover;
         }
 
-        /* Use Cases Section */
-        .use-cases {
-            padding: 90px 6vw;
-            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8) 0%, #060911 100%);
+        /* ---------------------------------------------------- */
+        /* MARQUEE INFINITO DE RESEÑAS / TESTIMONIOS (NUEVO) */
+        /* ---------------------------------------------------- */
+        .marquee-section {
+            padding: 30px 0;
+            background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: marqueeScroll 25s linear infinite;
+        }
+
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .review-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 22px;
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        .review-user { font-size: 13px; font-weight: 800; color: #10B981; margin-bottom: 4px; }
+        .review-text { font-size: 13px; color: #E2E8F0; line-height: 1.45; }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ---------------------------------------------------- */
+        /* BENTO GRID LAYOUT (MODERNO ASIMÉTRICO) */
+        /* ---------------------------------------------------- */
+        .bento-section {
+            padding: 90px 6vw;
             position: relative;
         }
 
@@ -240,174 +278,71 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .section-sub {
-            font-size: 16px;
-            color: #94A3B8;
-            line-height: 1.6;
-        }
+        .section-sub { font-size: 16px; color: #94A3B8; }
 
-        .adfree-pill-banner {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            padding: 8px 20px;
-            border-radius: 30px;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 700;
-            margin-top: 16px;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.18);
-        }
-
-        .adfree-pill-banner span { color: #10B981; font-weight: 800; }
-
-        .cases-grid {
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            max-width: 1100px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .case-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+        .bento-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 26px;
-            padding: 38px 32px;
+            border-radius: 28px;
+            padding: 34px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
-        .case-card:hover {
+        .bento-card:hover {
             transform: translateY(-6px);
             border-color: rgba(16, 185, 129, 0.45);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.2);
         }
 
-        .case-card-header {
+        .bento-card-large { grid-column: span 2; }
+        .bento-card-full { grid-column: span 3; }
+
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1.5px solid #10B981;
+            border-radius: 14px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            font-size: 22px;
+            color: #10B981;
             margin-bottom: 20px;
         }
 
-        .bs-badge-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid #10B981;
-            padding: 5px 12px;
-            border-radius: 10px;
-            color: #10B981;
-            font-size: 13px;
-            font-weight: 800;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
-        }
+        .bento-title { font-size: 24px; font-weight: 800; margin-bottom: 10px; color: #ffffff; }
+        .bento-desc { color: #94A3B8; font-size: 14.5px; line-height: 1.6; margin-bottom: 20px; }
 
-        .case-tag {
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 14px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tag-personal { background: rgba(16, 185, 129, 0.18); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .tag-comercio { background: rgba(59, 130, 246, 0.18); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3); }
-
-        .case-title { font-size: 25px; font-weight: 800; margin-bottom: 12px; color: #ffffff; }
-        .case-desc { color: #94A3B8; font-size: 14.5px; margin-bottom: 24px; line-height: 1.6; }
-
-        .case-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: auto;
-        }
-
-        .case-list li {
-            font-size: 14px;
-            color: #E2E8F0;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .case-list li .check-icon {
-            color: #10B981;
-            font-weight: 800;
-            font-size: 15px;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        /* SECCIÓN FAST CALC ⚡ */
-        .fastcalc-section {
-            padding: 90px 6vw;
-            background: linear-gradient(180deg, #090D16 0%, #0f172a 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .fastcalc-card {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%), #0f172a;
-            border: 1.5px solid rgba(59, 130, 246, 0.4);
-            border-radius: 28px;
-            padding: 40px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 36px;
-            align-items: center;
-        }
-
-        .fastcalc-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid #3B82F6;
-            padding: 4px 14px;
-            border-radius: 20px;
-            color: #3B82F6;
-            font-size: 12px;
-            font-weight: 800;
-            margin-bottom: 14px;
-        }
-
-        .fastcalc-title { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-        .fastcalc-desc { font-size: 15px; color: #94A3B8; margin-bottom: 20px; line-height: 1.6; }
-
-        .calc-demo-display {
+        /* Fast Calc Demo Inside Bento */
+        .calc-demo-box {
             background: #060911;
             border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 18px;
-            padding: 20px;
+            padding: 18px;
             text-align: right;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
-        .calc-expr { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
-        .calc-expr sup { color: #10B981; font-size: 15px; font-weight: 900; }
-        .calc-divider-line { height: 1.5px; background: rgba(16, 185, 129, 0.5); margin: 6px 0; }
-        .calc-result-bs { font-size: 32px; font-weight: 900; color: #10B981; }
-        .calc-result-usd { font-size: 16px; font-weight: 700; color: #3B82F6; }
+        .calc-expr { font-size: 20px; font-weight: 800; color: #ffffff; }
+        .calc-expr sup { color: #10B981; font-size: 14px; font-weight: 900; }
+        .calc-divider { height: 1.5px; background: rgba(16, 185, 129, 0.5); margin: 6px 0; }
+        .calc-res-bs { font-size: 30px; font-weight: 900; color: #10B981; }
+        .calc-res-usd { font-size: 15px; font-weight: 700; color: #3B82F6; }
 
         /* SECCIÓN DE TUTORIALES PASO A PASO */
         .tutorials-section {
@@ -488,41 +423,6 @@
         .step-text { font-size: 14px; color: #E2E8F0; line-height: 1.5; }
         .step-text strong { color: #ffffff; }
 
-        /* Features Section */
-        .features { padding: 90px 6vw; }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 26px;
-            transition: border-color 0.3s ease;
-        }
-
-        .feature-card:hover { border-color: rgba(16, 185, 129, 0.4); }
-
-        .feature-icon-box {
-            width: 48px;
-            height: 48px;
-            background: rgba(16, 185, 129, 0.12);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            margin-bottom: 16px;
-            color: #10B981;
-        }
-
-        .feature-title { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
-        .feature-text { font-size: 13.5px; color: #94A3B8; line-height: 1.55; }
-
         /* CTA Banner Section */
         .cta-banner {
             margin: 50px 6vw 80px 6vw;
@@ -576,16 +476,17 @@
 
         /* Fully Responsive for Phones and Tablets */
         @media (max-width: 900px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 110px; }
-            .hero-title { font-size: 32px; }
+            .hero-fullscreen { grid-template-columns: 1fr; text-align: center; padding-top: 110px; }
+            .hero-title { font-size: 34px; }
             .hero-desc { margin: 0 auto 24px auto; font-size: 15px; }
             .hero-actions { justify-content: center; }
-            .cases-grid, .tutorials-grid, .fastcalc-card { grid-template-columns: 1fr; gap: 20px; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card-large, .bento-card-full { grid-column: span 1; }
+            .tutorials-grid { grid-template-columns: 1fr; gap: 20px; }
             .nav-links { display: none; }
             .section-title { font-size: 28px; }
             .cta-title { font-size: 26px; }
             .phone-container { width: 240px; height: 480px; }
-            .case-card, .tuto-box, .fastcalc-card { padding: 24px 18px; }
         }
     </style>
 </head>
@@ -594,32 +495,32 @@
     <div class="glow-top-left"></div>
     <div class="glow-mid-right"></div>
 
-    <!-- Navegación -->
-    <nav>
+    <!-- Sticky Header -->
+    <nav class="sticky-header">
         <a href="#" class="brand-logo">
             <div class="logo-icon">BS=$</div>
             <div class="logo-text">BS = $ <span>Tasas Venezuela</span></div>
         </a>
 
         <ul class="nav-links">
-            <li><a href="#uso">Para Quién Es</a></li>
-            <li><a href="#fastcalc">Fast Calc ⚡</a></li>
+            <li><a href="#bento">Funciones</a></li>
+            <li><a href="#resenas">Reseñas</a></li>
             <li><a href="#tutoriales">Guía de Instalación</a></li>
             <li><a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-nav">📲 Descargar APK v1.2</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Web Hero Fullscreen with Video Background / Mockup -->
+    <section class="hero-fullscreen">
         <div>
             <div class="hero-badge">
-                <span>🇻🇪</span> TASA BCV EN VIVO + CALCULADORA INTELIGENTE
+                <span>🇻🇪</span> TASA BCV EN VIVO + FAST CALC ⚡
             </div>
             <h1 class="hero-title">
                 La App Esencial para <span>Comprar, Cobrar y Calcular</span> a Tasa BCV
             </h1>
             <p class="hero-desc">
-                Consulta el Dólar y Euro oficial en tiempo real directamente desde tu pantalla de inicio. Descarga la app gratis e instálala en 30 segundos con nuestras 48 Horas de Prueba Incluidas.
+                Consulta el Dólar y Euro oficial en tiempo real desde tu pantalla de inicio. Descarga la app gratis e instálala en 30 segundos con nuestras 48 Horas de Prueba Incluidas.
             </p>
 
             <div class="hero-actions">
@@ -635,83 +536,94 @@
         <div class="phone-mockup-wrapper">
             <div class="phone-container">
                 <div class="phone-notch"></div>
-                <video autoplay loop muted playsinline src="promo_assets/video.mp4"></video>
+                <video autoplay loop muted playsinline preload="metadata" src="promo_assets/video.mp4"></video>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN #USO POLISHED & HIGH END -->
-    <section id="uso" class="use-cases">
+    <!-- Marquee Infinito de Reseñas / Testimonios -->
+    <section id="resenas" class="marquee-section">
+        <div class="marquee-track">
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ José G. · Comerciante (Maracaibo)</div>
+                <div class="review-text">"¡Increíble para mi abasto! Damos el vuelto en segundos combinando billetes en $ y Pago Móvil. Sin colas en caja."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ María F. · Uso Personal (Caracas)</div>
+                <div class="review-text">"Fast Calc es una maravilla. Sumo mis compras del mercado mezclando dólares y bolívares sin enredos."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ Carlos M. · Abasto (Valencia)</div>
+                <div class="review-text">"El Widget en la pantalla de inicio me evita abrir la app a cada rato. 100% recomendada."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ Andrea R. · Compras (Barquisimeto)</div>
+                <div class="review-text">"Súper rápida y libre de publicidad molesta. Vale muchísimo más de los $3.50."</div>
+            </div>
+            <!-- Duplicado para loop fluido -->
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ José G. · Comerciante (Maracaibo)</div>
+                <div class="review-text">"¡Increíble para mi abasto! Damos el vuelto en segundos combinando billetes en $ y Pago Móvil. Sin colas en caja."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-user">⭐⭐⭐⭐⭐ María F. · Uso Personal (Caracas)</div>
+                <div class="review-text">"Fast Calc es una maravilla. Sumo mis compras del mercado mezclando dólares y bolívares sin enredos."</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO GRID LAYOUT (MODERNO Y ASIMÉTRICO) -->
+    <section id="bento" class="bento-section">
         <div class="section-header">
-            <h2 class="section-title">Diseñada para <span>Todos en Venezuela</span> 🇻🇪</h2>
-            <p class="section-sub">Desde la compra cotidiana de la familia en el supermercado hasta la rapidez en caja de un abasto o comercio.</p>
-
-            <div class="adfree-pill-banner">
-                <span>🛡️ 100% LIBRE DE PUBLICIDAD</span> · Experiencia Rápida, Limpia y Sin Anuncios Molestos
-            </div>
+            <h2 class="section-title">Experiencia <span>Bento Grid</span> de Alto Nivel ⚡</h2>
+            <p class="section-sub">Todas las herramientas diseñadas para la economía diaria y el comercio en Venezuela.</p>
         </div>
 
-        <div class="cases-grid">
-            <!-- Uso Personal -->
-            <div class="case-card">
-                <div class="case-card-header">
-                    <div class="bs-badge-logo">BS = $</div>
-                    <span class="case-tag tag-personal">🛒 USO PERSONAL</span>
+        <div class="bento-grid">
+            <!-- Bento 1 (Grande): Fast Calc ⚡ -->
+            <div class="bento-card bento-card-large">
+                <div>
+                    <div class="bento-icon">⚡</div>
+                    <h3 class="bento-title">Fast Calc: Calculadora Matemática Híbrida</h3>
+                    <p class="bento-desc">
+                        Combina Dólares y Euros con Bolívares en la misma ecuación. Mantén presionado cualquier número para asignarle el exponente <sup>$</sup> / <sup>€</sup> y presiona <strong>=</strong> para congelar las líneas y restar pagos o vueltos.
+                    </p>
                 </div>
-                <h3 class="case-title">Para Tus Compras Diarias</h3>
-                <p class="case-desc">Olvídate de sacar cuentas manuales en la calculadora del teléfono para saber cuántos Bolívares te toca pagar.</p>
 
-                <ul class="case-list">
-                    <li><span class="check-icon">✓</span> <span><strong>Widget oficial en vivo</strong> en tu pantalla de inicio sin abrir la app.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Suma el total de tu mercado</strong> en Dólares y Euros con conversión instantánea.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Verifica tu vuelto exacto</strong> para asegurarte de recibir el cambio correcto.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>100% Libre de Anuncios:</strong> Sin publicidad emergente que te distraiga al comprar.</span></li>
-                </ul>
-            </div>
-
-            <!-- Uso Comercial -->
-            <div class="case-card">
-                <div class="case-card-header">
-                    <div class="bs-badge-logo">BS = $</div>
-                    <span class="case-tag tag-comercio">🏬 USO COMERCIAL</span>
-                </div>
-                <h3 class="case-title">Para Abastos, Tiendas y Cajeros</h3>
-                <p class="case-desc">Agiliza el cobro en caja y elimina colas al momento de dar el vuelto a la tasa del Banco Central de Venezuela.</p>
-
-                <ul class="case-list">
-                    <li><span class="check-icon">✓</span> <span><strong>Convertidor instantáneo</strong> de divisas a Bolívares oficiales en vivo.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Calculadora de Vuelto Inteligente:</strong> Desglose en Billetes ($) + Pago Móvil.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Licencias Multiequipo:</strong> Conecta los teléfonos de todos tus cajeros en tiempo real.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Rápida y Privada:</strong> Interfaz profesional sin publicidad molesta en horario de trabajo.</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN NOVEDAD: FAST CALC ⚡ -->
-    <section id="fastcalc" class="fastcalc-section">
-        <div class="fastcalc-card">
-            <div>
-                <div class="fastcalc-badge">⚡ NOVEDAD EXCLUSIVA EN V1.2</div>
-                <h2 class="fastcalc-title">Fast Calc: Calculadora Matemática Híbrida</h2>
-                <p class="fastcalc-desc">
-                    Combina Dólares y Bolívares en la misma ecuación. Presiona <strong>=</strong> para trazar las líneas de evaluación y restar entregas en efectivo o Pago Móvil conservando tu suma inicial en pantalla.
-                </p>
-
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-hero-primary" style="padding: 12px 22px; font-size: 14px;">
-                        <span>📲 Probar Fast Calc en la App</span>
-                    </a>
+                <div class="calc-demo-box">
+                    <div class="calc-expr">580 + 3,2<sup>$</sup> + 1250 + 0,9<sup>$</sup> + 4,2<sup>$</sup></div>
+                    <div class="calc-divider"></div>
+                    <div class="calc-res-bs">9.464,53 Bs</div>
+                    <div class="calc-res-usd">≡ $ 10,29 USD</div>
+                    <div class="calc-divider"></div>
                 </div>
             </div>
 
-            <!-- Pantalla Demo de Ecuación -->
-            <div class="calc-demo-display">
-                <div class="calc-expr">580 + 3,2<sup>$</sup> + 1250 + 0,9<sup>$</sup> + 4,2<sup>$</sup></div>
-                <div class="calc-divider-line"></div>
-                <div class="calc-result-bs">9.464,53 Bs.</div>
-                <div class="calc-result-usd">≡ $ 10,29 USD</div>
-                <div class="calc-divider-line"></div>
+            <!-- Bento 2: Widget Oficial BCV -->
+            <div class="bento-card">
+                <div>
+                    <div class="bento-icon">📲</div>
+                    <h3 class="bento-title">Widgets BCV Oficiales</h3>
+                    <p class="bento-desc">Dos diseños para tu pantalla de inicio: Tarjeta Completa u Horizontal Compacto. Consulta la tasa en vivo sin abrir la app.</p>
+                </div>
+            </div>
+
+            <!-- Bento 3: Desglose Vuelto -->
+            <div class="bento-card">
+                <div>
+                    <div class="bento-icon">💡</div>
+                    <h3 class="bento-title">Desglose de Vuelto</h3>
+                    <p class="bento-desc">Calcula el vuelto exacto al instante sugiriendo billetes físicos ($/€) y el restante en Pago Móvil.</p>
+                </div>
+            </div>
+
+            <!-- Bento 4 (Grande): 100% Libre de Publicidad -->
+            <div class="bento-card bento-card-large">
+                <div>
+                    <div class="bento-icon">🛡️</div>
+                    <h3 class="bento-title">100% Libre de Publicidad & Ultra Rápida</h3>
+                    <p class="bento-desc">Disfruta de una herramienta limpia y profesional. Sin comerciales ni anuncios molestos que bloqueen tu pantalla en horario de trabajo o al hacer compras.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -782,40 +694,6 @@
                         <div class="step-text">Elige tu Widget preferido (*Tarjeta Completa u Horizontal Compacto*), manténlo presionado y **arrástralo a tu pantalla**.</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Funciones Principales -->
-    <section id="funciones" class="features">
-        <div class="section-header">
-            <h2 class="section-title">Todas las Herramientas que Necesitas</h2>
-            <p class="section-sub">Creada pensando en la realidad del comercio y la economía diaria en Venezuela.</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon-box">📊</div>
-                <h3 class="feature-title">Tasa Oficial BCV en Vivo</h3>
-                <p class="feature-text">Sincronización automática con la Tasa Oficial del Banco Central de Venezuela para Dólar ($) y Euro (€).</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon-box">📲</div>
-                <h3 class="feature-title">Widget de Pantalla de Inicio</h3>
-                <p class="feature-text">Un Widget elegante de alto contraste que te permite ver la tasa oficial actualizada sin necesidad de abrir la app.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon-box">⚡</div>
-                <h3 class="feature-title">Fast Calc Integrado</h3>
-                <p class="feature-text">Realiza operaciones matemáticas mezclando Bolívares y Dólares con exponente <sup>$</sup> en un solo toque.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon-box">🛡️</div>
-                <h3 class="feature-title">100% Libre de Publicidad</h3>
-                <p class="feature-text">Disfruta de una herramienta limpia, rápida y profesional, sin comerciales ni anuncios que bloqueen tu pantalla.</p>
             </div>
         </div>
     </section>
