@@ -213,9 +213,7 @@
             object-fit: cover;
         }
 
-        /* ---------------------------------------------------- */
         /* MARQUEE INFINITO DE RESEÑAS / TESTIMONIOS */
-        /* ---------------------------------------------------- */
         .marquee-section {
             padding: 30px 0;
             background: rgba(15, 23, 42, 0.9);
@@ -251,9 +249,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ---------------------------------------------------- */
         /* BENTO GRID LAYOUT */
-        /* ---------------------------------------------------- */
         .bento-section {
             padding: 90px 6vw;
             position: relative;
@@ -569,11 +565,11 @@
         <div class="phone-mockup-wrapper">
             <div class="phone-container">
                 <div class="phone-notch"></div>
-                <video autoplay loop muted playsinline preload="metadata">
-                    <source src="video.mp4" type="video/mp4">
+                <video id="heroVid" autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235448.jpg">
                     <source src="promo_assets/video.mp4" type="video/mp4">
-                    <source src="tasas-venezuela-personal.mp4" type="video/mp4">
-                    <source src="banner-historias.mp4" type="video/mp4">
+                    <source src="video.mp4" type="video/mp4">
+                    <source src="./promo_assets/video.mp4" type="video/mp4">
+                    <source src="./video.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -666,7 +662,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE TUTORIALES DE INSTALACIÓN Y WIDGET -->
+    <!-- SECCIÓN DE TUTORIALES PASO A PASO -->
     <section id="tutoriales" class="tutorials-section">
         <div class="section-header">
             <h2 class="section-title">Guía Fácil: <span>Instalación y Widget</span> 📲</h2>
@@ -760,5 +756,15 @@
         <div>Desarrollo Móvil Venezuela 🇻🇪</div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var v = document.getElementById('heroVid');
+            if (v) {
+                v.play().catch(function(err) {
+                    console.log("Autoplay retried:", err);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
