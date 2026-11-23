@@ -203,10 +203,11 @@
             z-index: 25;
         }
 
-        .android-phone-mockup video {
+        .android-phone-mockup video, .hero-phone-container video, .android-phone-mockup img, .hero-phone-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* Hero Main Phone Frame */
@@ -287,9 +288,9 @@
 
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -487,14 +488,14 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="#demostración">Ver en Android</a></li>
+            <li><a href="#demostracion">Demostración en Android</a></li>
             <li><a href="#resenas">Reseñas</a></li>
             <li><a href="#tutoriales">Guía de Instalación</a></li>
             <li><a href="https://github.com/c0394885/tasas-venezuela/releases/download/v1.2/TasasVenezuela-v1.2.apk" class="btn-nav">📲 Descargar APK v1.2</a></li>
         </ul>
     </nav>
 
-    <!-- Web Hero Fullscreen con Teléfono Android Real (Video 1) -->
+    <!-- Web Hero Fullscreen con Teléfono Android Real (Video 2 + Video 1 de Respaldo) -->
     <section class="hero-fullscreen">
         <div class="hero-left-container">
             <div class="hero-badge">
@@ -518,14 +519,17 @@
             </div>
         </div>
 
-        <!-- Teléfono Android Principal (Video 1) -->
+        <!-- Teléfono Android Principal de la Portada (Video 2: 4MB Super Rápido + Video 1) -->
         <div class="phone-mockup-wrapper">
             <div class="hero-phone-container">
                 <div class="android-camera-dot"></div>
                 <video id="heroVid" autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235448.jpg">
+                    <source src="2.mp4" type="video/mp4">
+                    <source src="promo_assets/2.mp4" type="video/mp4">
                     <source src="1.mp4" type="video/mp4">
                     <source src="promo_assets/1.mp4" type="video/mp4">
                     <source src="video.mp4" type="video/mp4">
+                    <img src="promo_assets/Screenshot_20261117-235448.jpg" alt="App Preview" style="width:100%; height:100%; object-fit:cover;">
                 </video>
             </div>
         </div>
@@ -561,15 +565,30 @@
         </div>
     </section>
 
-    <!-- DEMOSTRACIÓN REAL EN TELÉFONOS ANDROID VERTICALES -->
-    <section id="demostración" class="showcase-section">
+    <!-- DEMOSTRACIÓN REAL EN TELÉFONOS ANDROID VERTICALES (TODOS LOS VIDEOS 1, 2, 3, 4, 5) -->
+    <section id="demostracion" class="showcase-section">
         <div class="section-header">
             <h2 class="section-title">Mira Cómo Funciona en tu <span>Teléfono Android</span> 📲</h2>
-            <p class="section-sub">Así se verá y funcionará exactamente la aplicación en la pantalla de tu celular.</p>
+            <p class="section-sub">Demostración en vivo de todas las funciones de la aplicación en pantallas reales.</p>
         </div>
 
         <div class="showcase-grid">
-            <!-- Teléfono 1: Fast Calc ⚡ (Video 3) -->
+            <!-- Teléfono 1: Demostración Principal (Video 1) -->
+            <div class="showcase-card">
+                <span class="showcase-badge">📊 TASAS Y MERCADO</span>
+                <h3 class="showcase-title">Suma de Compras y Tasa BCV</h3>
+                <p class="showcase-desc">Consulta el valor oficial del Dólar y Euro al instante y suma tus productos en divisas o bolívares.</p>
+
+                <div class="android-phone-mockup">
+                    <div class="android-camera-dot"></div>
+                    <video autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235448.jpg">
+                        <source src="1.mp4" type="video/mp4">
+                        <source src="promo_assets/1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Teléfono 2: Fast Calc Híbrida ⚡ (Video 3) -->
             <div class="showcase-card">
                 <span class="showcase-badge">⚡ FAST CALC HÍBRIDA</span>
                 <h3 class="showcase-title">Calculadora con Exponente $</h3>
@@ -577,14 +596,14 @@
 
                 <div class="android-phone-mockup">
                     <div class="android-camera-dot"></div>
-                    <video autoplay loop muted playsinline preload="auto">
+                    <video autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235417.jpg">
                         <source src="3.mp4" type="video/mp4">
                         <source src="promo_assets/3.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- Teléfono 2: Widgets BCV Oficiales (Video 4) -->
+            <!-- Teléfono 3: Widgets BCV Oficiales (Video 4) -->
             <div class="showcase-card">
                 <span class="showcase-badge">📲 WIDGETS BCV OFICIALES</span>
                 <h3 class="showcase-title">En tu Pantalla de Inicio</h3>
@@ -592,14 +611,14 @@
 
                 <div class="android-phone-mockup">
                     <div class="android-camera-dot"></div>
-                    <video autoplay loop muted playsinline preload="auto">
+                    <video autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235429.jpg">
                         <source src="4.mp4" type="video/mp4">
                         <source src="promo_assets/4.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <!-- Teléfono 3: Desglose de Vuelto (Video 5) -->
+            <!-- Teléfono 4: Desglose de Vuelto (Video 5) -->
             <div class="showcase-card">
                 <span class="showcase-badge">💡 DESGLOSE INTELIGENTE</span>
                 <h3 class="showcase-title">Vuelto Exacto en Caja</h3>
@@ -607,7 +626,7 @@
 
                 <div class="android-phone-mockup">
                     <div class="android-camera-dot"></div>
-                    <video autoplay loop muted playsinline preload="auto">
+                    <video autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235404.jpg">
                         <source src="5.mp4" type="video/mp4">
                         <source src="promo_assets/5.mp4" type="video/mp4">
                     </video>
@@ -715,5 +734,15 @@
         <div>Desarrollo Móvil Venezuela 🇻🇪</div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var v = document.getElementById('heroVid');
+            if (v) {
+                v.play().catch(function(err) {
+                    console.log("Autoplay retried:", err);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
