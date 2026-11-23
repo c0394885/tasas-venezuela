@@ -99,18 +99,35 @@
 
         .hero-left-container { position: relative; }
 
-        .hero-badge {
-            display: inline-flex;
+        /* Video 2 Traslúcido de Fondo en Hero Badge */
+        .hero-video-badge {
+            width: 100%;
+            max-width: 440px;
+            height: 90px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(16, 185, 129, 0.2);
+            background: #0f172a;
+        }
+
+        .hero-video-badge video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        .hero-badge-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(6,9,17,0.85) 0%, rgba(6,9,17,0.3) 100%);
+            display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.35);
-            padding: 6px 16px;
-            border-radius: 30px;
-            color: #10B981;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 18px;
+            padding: 16px 20px;
+            gap: 12px;
         }
 
         .hero-title {
@@ -210,7 +227,7 @@
             display: block;
         }
 
-        /* Hero Main Phone Frame */
+        /* Hero Main Phone Frame (Video 1) */
         .hero-phone-container {
             width: 280px;
             height: 560px;
@@ -495,11 +512,23 @@
         </ul>
     </nav>
 
-    <!-- Web Hero Fullscreen con Teléfono Android Real (Video 2 + Video 1 de Respaldo) -->
+    <!-- Web Hero Fullscreen (Video 2 en Cápsula Traslúcida + Video 1 en Celular 3D Principal) -->
     <section class="hero-fullscreen">
         <div class="hero-left-container">
-            <div class="hero-badge">
-                <span>🇻🇪</span> TASA BCV EN VIVO + FAST CALC ⚡
+            <!-- Video 2 Traslúcido de Fondo en la sección superior izquierda -->
+            <div class="hero-video-badge">
+                <video autoplay loop muted playsinline preload="auto">
+                    <source src="2.mp4" type="video/mp4">
+                    <source src="promo_assets/2.mp4" type="video/mp4">
+                    <source src="tasas-venezuela-personal.mp4" type="video/mp4">
+                </video>
+                <div class="hero-badge-overlay">
+                    <span style="font-size: 22px;">🇻🇪</span>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 800; color: #10B981;">TASA BCV EN VIVO + FAST CALC ⚡</div>
+                        <div style="font-size: 11px; color: #CBD5E1;">Actualización Oficial en Tiempo Real</div>
+                    </div>
+                </div>
             </div>
 
             <h1 class="hero-title">
@@ -519,16 +548,15 @@
             </div>
         </div>
 
-        <!-- Teléfono Android Principal de la Portada (Video 2: 4MB Super Rápido + Video 1) -->
+        <!-- Video 1 en Celular 3D Principal de la Portada -->
         <div class="phone-mockup-wrapper">
             <div class="hero-phone-container">
                 <div class="android-camera-dot"></div>
                 <video id="heroVid" autoplay loop muted playsinline preload="auto" poster="promo_assets/Screenshot_20261117-235448.jpg">
-                    <source src="2.mp4" type="video/mp4">
-                    <source src="promo_assets/2.mp4" type="video/mp4">
                     <source src="1.mp4" type="video/mp4">
                     <source src="promo_assets/1.mp4" type="video/mp4">
                     <source src="video.mp4" type="video/mp4">
+                    <source src="promo_assets/video.mp4" type="video/mp4">
                     <img src="promo_assets/Screenshot_20261117-235448.jpg" alt="App Preview" style="width:100%; height:100%; object-fit:cover;">
                 </video>
             </div>
